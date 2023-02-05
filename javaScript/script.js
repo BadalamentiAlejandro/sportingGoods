@@ -1,4 +1,6 @@
+//Tienda online, interfaz cliente.
 
+//En este ARRAY se acumula el stock de la empresa. Este se rellena con los OBJETOS mediante el CONSTRUCTOR productos.
 const listaDeProductos = [];
 
 
@@ -11,7 +13,7 @@ class productos {
     
 }
 
-
+//Aquí se definen los OBJETOS, que en caso real serían introducidos por la interfaz de empresa, no la de clientes.
 const remera = new productos('remera', 5.53);
 const sweater = new productos('sweater', 12.28);
 const shorts = new productos('shorts', 8.42);
@@ -21,12 +23,19 @@ const leggings = new productos('leggings', 12.98);
 const botines = new productos('botines', 50.00);
 
 
+
+//Lista de cupones es este caso pre-definidos.
 const listaDeCupones = ['10', '25', '30', '50']
 
 
-let cesta = 0;
-let precioTotal = 0;
 
+let cesta = 0; //Precio que tendrá cada item.
+let precioTotal = 0; //Precio total de todos los items en la cesta.
+
+
+
+
+//Mediante esta función se recauda información sobre el producto que el cliente desea comprar y se devuelve el precio de cada uno. Finalmente cuando el cliente no desea agregar mas productos, se le informará el total a pagar por su compra. Todos los precios manejan máximo 2 decimales.
 const agregarAlCarro = () => {
     alert('Bienvenido a tu tienda de ropa deportiva favorita. Nuestros productos especiales de hoy son: Remera, Sweater, Shorts, Zapatillas, Pantalones, Leggings y Botines');
 
@@ -76,6 +85,11 @@ agregarAlCarro();
 console.log(precioTotal.toFixed(2));
 alert('Su carro tiene productos por un total de ' + precioTotal.toFixed(2) + ' dolares');
 
+
+
+
+
+//En esta sección del código, el cliente introduce uno de los números de la lista de cupones y se le hace el descuento correspondiente. Finalmente se le informa del precio de toda su compra con el descuento incluido.
 const activarCuponDeDescuento = () => {
     console.log('Los números de cupon son 10, 25, 30 o 50');
     let numeroDeCupon = prompt('Escribe el número de cupon de descuento si posees uno, sino escribe "no" (Los números de cupon son 10, 25, 30 o 50)').toLowerCase();
