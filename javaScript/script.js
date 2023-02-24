@@ -1,121 +1,89 @@
-//Tienda online, interfaz cliente.
+//codigo de Bootstrap para los popovers.
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl)
+});
 
-//En este ARRAY se acumula el stock de la empresa. Este se rellena con los OBJETOS mediante el CONSTRUCTOR productos.
+//Array para la cesta
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+
+
+//lista de productos pre creada con un constructor.
 const listaDeProductos = [];
-
-
 class productos {
     constructor(nombre, precio) {
         this.nombre = nombre;
         this.precio = parseFloat(precio);
         listaDeProductos.push(this);
     }
-    
+
 }
-
-//Aquí se definen los OBJETOS, que en caso real serían introducidos por la interfaz de empresa, no la de clientes.
-const remera = new productos('remera', 5.53);
-const sweater = new productos('sweater', 12.28);
-const shorts = new productos('shorts', 8.42);
-const zapatillas = new productos('zapatillas', 40.17);
-const pantalones = new productos('pantalones', 15.00);
-const leggings = new productos('leggings', 12.98);
-const botines = new productos('botines', 50.00);
+const remera = new productos('remera', '5.53');
+const sweater = new productos('sweater', '12.28');
+const shorts = new productos('shorts', '8.42');
+const zapatillas = new productos('zapatillas', '40.17');
+const pantalones = new productos('pantalones', '15.00');
+const leggings = new productos('leggings', '12.98');
+const botines = new productos('botines', '50.00');
 
 
-
-//Lista de cupones es este caso pre-definidos.
-const listaDeCupones = ['10', '25', '30', '50']
-
-
-
-let cesta = 0; //Precio que tendrá cada item.
-let precioTotal = 0; //Precio total de todos los items en la cesta.
-
-
-
-
-//Mediante esta función se recauda información sobre el producto que el cliente desea comprar y se devuelve el precio de cada uno. Finalmente cuando el cliente no desea agregar mas productos, se le informará el total a pagar por su compra. Todos los precios manejan máximo 2 decimales.
-const agregarAlCarro = () => {
-    alert('Bienvenido a tu tienda de ropa deportiva favorita. Nuestros productos especiales de hoy son: Remera, Sweater, Shorts, Zapatillas, Pantalones, Leggings y Botines');
-
-    let productoElegido = prompt('Deseas agregar un producto a tu carrito de compras? Escribe alguna de las opciones: Remera, Sweater, Shorts, Zapatillas, Pantalones, Leggings, Botines o escribe "no" para salir').toLowerCase();
-
-    while (productoElegido != 'no') {
-        switch (productoElegido) {
-            case listaDeProductos[0].nombre:
-                cesta = listaDeProductos[0].precio;
-                alert('Haz elegido ' + listaDeProductos[0].nombre + ' y su precio es de ' + (listaDeProductos[0].precio).toFixed(2) + ' Dolares');
-                break;
-            case listaDeProductos[1].nombre:
-                cesta = listaDeProductos[1].precio;
-                alert('Haz elegido ' + listaDeProductos[1].nombre + ' y su precio es de ' + (listaDeProductos[1].precio).toFixed(2) + ' Dolares');
-                break;
-            case listaDeProductos[2].nombre:
-                cesta = listaDeProductos[2].precio;
-                alert('Haz elegido ' + listaDeProductos[2].nombre + ' y su precio es de ' + (listaDeProductos[2].precio).toFixed(2) + ' Dolares');
-                break;
-            case listaDeProductos[3].nombre:
-                cesta = listaDeProductos[3].precio;
-                alert('Haz elegido ' + listaDeProductos[3].nombre + ' y su precio es de ' + (listaDeProductos[3].precio).toFixed(2) + ' Dolares');
-                break;
-            case listaDeProductos[4].nombre:
-                cesta = listaDeProductos[4].precio;
-                alert('Haz elegido ' + listaDeProductos[4].nombre + ' y su precio es de ' + (listaDeProductos[4].precio).toFixed(2) + ' Dolares');
-                break;
-            case listaDeProductos[5].nombre:
-                cesta = listaDeProductos[5].precio;
-                alert('Haz elegido ' + listaDeProductos[5].nombre + ' y su precio es de ' + (listaDeProductos[5].precio).toFixed(2) + ' Dolares');
-                break;
-            case listaDeProductos[6].nombre:
-                cesta = listaDeProductos[6].precio;
-                alert('Haz elegido ' + listaDeProductos[6].nombre + ' y su precio es de ' + (listaDeProductos[6].precio).toFixed(2) + ' Dolares');
-                break;
-            default: cesta
-                cesta = 0;
-                alert('Introduce un producto correcto');
-        }
-        precioTotal = precioTotal + cesta;
-        productoElegido = prompt('Escribe otro producto, por favor! Remera, Sweater, Shorts, Zapatillas, Pantalones, Leggings, Botines o escribe "no" para salir').toLowerCase();
+//obtengo los productos elegidos por el usuario.
+const botonAgregar = document.getElementsByClassName("botonAgregar");
+//Funcion que por cada click ingresa cada item en el carrito y en el STORAGE.
+function ingresarProductos(el) {
+    for (let i = 0; i < el.length; i++) {
+        botonAgregar[i].addEventListener("click", () => {
+            let saveItem = { ...listaDeProductos[i], id: carrito.length }
+            carrito.push(saveItem);
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+        })
     }
-}
-
-agregarAlCarro();
-
-console.log(precioTotal.toFixed(2));
-alert('Su carro tiene productos por un total de ' + precioTotal.toFixed(2) + ' dolares');
+};
+ingresarProductos(botonAgregar);
 
 
 
+//Manipulamos el DOM de miCesta.
+let containerProducto = document.getElementById("containerProducto");
 
+let containerTotal = document.getElementById("containerTotal");
 
-//En esta sección del código, el cliente introduce uno de los números de la lista de cupones y se le hace el descuento correspondiente. Finalmente se le informa del precio de toda su compra con el descuento incluido.
-const activarCuponDeDescuento = () => {
-    console.log('Los números de cupon son 10, 25, 30 o 50');
-    let numeroDeCupon = prompt('Escribe el número de cupon de descuento si posees uno, sino escribe "no" (Los números de cupon son 10, 25, 30 o 50)').toLowerCase();
-
-    while (numeroDeCupon != 'no') {
-        switch (numeroDeCupon) {
-            case listaDeCupones[0]:
-                precioTotal = (precioTotal - (precioTotal * 0.10)).toFixed(2);
-                break;
-            case listaDeCupones[1]:
-                precioTotal = (precioTotal - (precioTotal * 0.25)).toFixed(2);
-                break;
-            case listaDeCupones[2]:
-                precioTotal = (precioTotal - (precioTotal * 0.30)).toFixed(2);
-                break;
-            case listaDeCupones[3]:
-                precioTotal = (precioTotal - (precioTotal * 0.50)).toFixed(2);
-                break;
-            default:
-                alert('El número introducido es incorrecto, vuelve a intentar');
-        }
-        numeroDeCupon = prompt('Escribe un número de cupon correcto de descuento si posees uno, sino escribe "no"');
+//Este loop imprime el los productos y los precios de la cesta.
+function imprimirContainer() {
+    for (const producto of carrito) {
+        containerProducto.innerHTML += `
+                            <h2>Producto: ${producto.nombre} </h2>
+                            <h2>Precio: $${producto.precio} </h2>
+                            <button class="botonEliminar">Eliminar producto</button>`;
     }
-    console.log(precioTotal);
-    alert('El total de tu compra tiene un precio de ' + precioTotal + ' dolares');
-}
+};
+imprimirContainer()
 
-activarCuponDeDescuento();
 
+const botonEliminar = document.getElementsByClassName("botonEliminar");
+//Funcion para eliminar elemento del STORAGE.
+function eliminarElemento(botonEliminar) {
+    for (let i = 0; i < carrito.length; i++) {
+        botonEliminar[i].addEventListener("click", () => {
+            carrito.splice(i, 1);
+            localStorage.clear();
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            location.reload();//Se que esto no es lo mejor, pero es lo que encontré para poder refrescar la funcion imprimirContainer.
+        })
+    }
+};
+eliminarElemento(botonEliminar);
+
+let total = 0;
+//Funcion que suma el precio total de todos los items en el carrito.
+function sumarTotal() {
+    for (let i = 0; i < carrito.length; i++) {
+
+        total += carrito[i].precio;
+    };
+};
+sumarTotal();
+//Este elemento imprime el precio total de la compra.
+containerTotal.innerHTML = `
+                            <h2>Precio Total: $${total.toFixed(2)} </h2>`;
