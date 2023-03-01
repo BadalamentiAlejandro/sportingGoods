@@ -1,3 +1,4 @@
+
 //codigo de Bootstrap para los popovers.
 var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
 var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
@@ -34,12 +35,14 @@ const botonAgregar = document.getElementsByClassName("botonAgregar");
 function ingresarProductos(el) {
     for (let i = 0; i < el.length; i++) {
         botonAgregar[i].addEventListener("click", () => {
-            let saveItem = { ...listaDeProductos[i], id: carrito.length }
+            let saveItem = listaDeProductos[i]
             carrito.push(saveItem);
             localStorage.setItem("carrito", JSON.stringify(carrito));
         })
     }
 };
+
+
 ingresarProductos(botonAgregar);
 
 

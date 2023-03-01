@@ -1,0 +1,25 @@
+{
+    "name": "mybasketproyect",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build-css": "node-sass --include-path scss sass/mybasketproyect.scss style.css",
+        "watch-css": "nodemon -e scss -x \"npm run build-css\"",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/BadalamentiAlejandro/sportingGoods.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/BadalamentiAlejandro/sportingGoods/issues"
+    },
+    "homepage": "https://github.com/BadalamentiAlejandro/sportingGoods#readme",
+    "devDependencies": {
+        "node-sass": "^8.0.0",
+        "nodemon": "^2.0.20"
+    }
+}
