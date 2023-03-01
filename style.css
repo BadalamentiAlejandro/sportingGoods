@@ -55,6 +55,16 @@ body {
         background-color: #b8d8e0;
         color: #ff7235; }
 
+.textoHome {
+  margin: 1rem;
+  text-align: center;
+  font-size: 3rem; }
+  .textoHome a {
+    text-decoration: none;
+    color: #ff7235; }
+    .textoHome a:hover {
+      color: #fcf5ef; }
+
 .containerPrincipal {
   display: flex;
   flex-direction: row; }

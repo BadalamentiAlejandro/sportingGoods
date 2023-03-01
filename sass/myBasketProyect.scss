@@ -75,6 +75,19 @@ body {
     }
 }
 
+.textoHome {
+    margin: 1rem;
+    text-align: center;
+    font-size: 3rem;
+    a {
+        text-decoration: none;
+        color: rgb(255, 114, 53);
+        &:hover{
+            color: $colorLetras;
+        }
+    }
+}
+
 .containerPrincipal {
     display: flex;
     flex-direction: row;
