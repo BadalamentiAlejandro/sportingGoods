@@ -35,7 +35,7 @@ function ingresarProductos(el) {
             swal({
                 title: "Producto agregado correctamente!",
                 text: `${listaDeProductos[i].nombre}
-                       $${listaDeProductos[i].precio}`,
+                       ${listaDeProductos[i].precio}`,
                 icon: "success",
             });
         })
@@ -44,5 +44,3 @@ function ingresarProductos(el) {
 
 
 ingresarProductos(botonAgregar);
-
-

@@ -10,7 +10,8 @@ html {
   color-scheme: dark light; }
 
 body {
-  background-color: whitesmoke; }
+  background-color: #6db5ca;
+  color: #fcf5ef; }
 
 .header {
   display: flex;
@@ -25,12 +26,12 @@ body {
     font-size: 1.3rem; }
 
 .nav {
-  background-color: blue;
+  background-color: #b8d8e0;
   margin: 1rem, 1rem;
   padding: 1rem;
   border: 1rem;
   border-style: solid;
-  border-color: #000053;
+  border-color: #ff7235;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around; }
@@ -48,8 +49,16 @@ body {
       font-size: 1.5rem; }
     .nav .menuPrincipal a {
       text-decoration: none;
-      color: white;
+      color: #fcf5ef;
       font-weight: bold; }
       .nav .menuPrincipal a:hover {
-        color: blue;
-        background-color: white; }
+        background-color: #b8d8e0;
+        color: #ff7235; }
+
+.containerPrincipal {
+  display: flex;
+  flex-direction: row; }
+  .containerPrincipal .card {
+    background-color: #6db5ca; }
+    .containerPrincipal .card img {
+      height: 40vh; }
