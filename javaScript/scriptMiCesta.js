@@ -3,51 +3,6 @@
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 
-
-//lista de productos pre creada con un constructor.
-const listaDeProductos = [];
-class productos {
-    constructor(nombre, precio) {
-        this.nombre = nombre;
-        this.precio = parseFloat(precio);
-        listaDeProductos.push(this);
-    }
-
-}
-const remera = new productos('remera', '5.53');
-const sweater = new productos('sweater', '12.28');
-const shorts = new productos('shorts', '8.42');
-const zapatillas = new productos('zapatillas', '40.17');
-const pantalones = new productos('pantalones', '15.00');
-const leggings = new productos('leggings', '12.98');
-const botines = new productos('botines', '50.00');
-
-
-//obtengo los productos elegidos por el usuario.
-const botonAgregar = document.getElementsByClassName("botonAgregar");
-//Funcion que por cada click ingresa cada item en el carrito y en el STORAGE.
-function ingresarProductos(el) {
-    for (let i = 0; i < el.length; i++) {
-        botonAgregar[i].addEventListener("click", () => {
-            let saveItem = listaDeProductos[i]
-            carrito.push(saveItem);
-            localStorage.setItem("carrito", JSON.stringify(carrito));
-            swal({
-                title: "Producto agregado correctamente!",
-                text: `${listaDeProductos[i].nombre}
-                       ${listaDeProductos[i].precio}`,
-                icon: "success",
-            });
-        })
-    }
-};
-
-
-ingresarProductos(botonAgregar);
-
-
-
-
 //Manipulamos el DOM de miCesta.
 let containerProducto = document.getElementById("containerProducto");
 
@@ -57,9 +12,13 @@ let containerTotal = document.getElementById("containerTotal");
 function imprimirContainer() {
     for (const producto of carrito) {
         containerProducto.innerHTML += `
-                            <h2>Producto: ${producto.nombre} </h2>
-                            <h2>Precio: $${producto.precio} </h2>
-                            <button class="botonEliminar">Eliminar producto</button>`;
+                        <li class="lista">
+                            <img class="imagen" src= "${producto.imagen}">
+                            <p class="nombre">${producto.nombre}</p>
+                            <p class="precio">$${producto.precio}</p>
+                            <button class="botonEliminar">Eliminar producto</button>
+                        </li>    
+                            `;
     }
 };
 imprimirContainer()
@@ -68,7 +27,7 @@ imprimirContainer()
 const botonEliminar = document.getElementsByClassName("botonEliminar");
 //Funcion para eliminar elemento del STORAGE.
 function eliminarElemento(botonEliminar) {
-    for (let i = 0; i < carrito.length; i++) {
+    for (let i = 0; i < botonEliminar.length; i++) {
         botonEliminar[i].addEventListener("click", () => {
             carrito.splice(i, 1);
             localStorage.clear();

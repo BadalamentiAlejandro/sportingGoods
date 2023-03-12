@@ -1,0 +1,39 @@
+{
+    "store": [
+        {
+            "imagen": "../resources/remera.jpg",
+            "nombre": "remera",
+            "precio": 5.53
+        },
+        {
+            "imagen": "../resources/sweater.jpg",
+            "nombre": "sweater",
+            "precio": 12.28
+        },
+        {
+            "imagen": "../resources/shorts.jpg",
+            "nombre": "shorts",
+            "precio": 8.42
+        },
+        {
+            "imagen": "../resources/zapatillas.webp",
+            "nombre": "zapatillas",
+            "precio": 40.17
+        },
+        {
+            "imagen": "../resources/pantalones.webp",
+            "nombre": "pantalones",
+            "precio": 15.00
+        },
+        {
+            "imagen": "../resources/leggings.webp",
+            "nombre": "leggings",
+            "precio": 12.98
+        },
+        {
+            "imagen": "../resources/botines.jpg",
+            "nombre": "botines",
+            "precio": 50.00
+        }
+    ]
+}

@@ -65,10 +65,33 @@ body {
     .textoHome a:hover {
       color: #fcf5ef; }
 
-.containerPrincipal {
+.main {
   display: flex;
-  flex-direction: row; }
-  .containerPrincipal .card {
-    background-color: #6db5ca; }
-    .containerPrincipal .card img {
-      height: 40vh; }
+  justify-content: center; }
+  .main .container {
+    margin: 1rem;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    list-style-type: none; }
+    .main .container .lista {
+      margin: 1rem; }
+      .main .container .lista .imagen {
+        margin: 1rem;
+        width: 20vw;
+        height: 45vh; }
+      .main .container .lista .nombre {
+        text-transform: uppercase;
+        font-size: larger; }
+      .main .container .lista .botonAgregar {
+        padding: 1rem;
+        font-weight: bold; }
+        .main .container .lista .botonAgregar:hover {
+          background-color: #ff7235; }
+      .main .container .lista .botonEliminar {
+        padding: 1rem;
+        font-weight: bold; }
+        .main .container .lista .botonEliminar:hover {
+          background-color: #ff7235; }
