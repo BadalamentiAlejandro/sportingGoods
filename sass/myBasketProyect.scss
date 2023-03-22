@@ -112,10 +112,12 @@ body {
                 width: 20vw;
                 height: 45vh;
             }
+
             .nombre {
                 text-transform: uppercase;
                 font-size: larger;
             }
+
             .botonAgregar {
                 padding: 1rem;
                 font-weight: bold;
@@ -124,14 +126,93 @@ body {
                     background-color: rgb(255, 114, 53);
                 }
             }
-            .botonEliminar {
-                padding: 1rem;
-                font-weight: bold;
 
-                &:hover {
-                    background-color: rgb(255, 114, 53);
+            .containerContador {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+
+                .textoContador {
+                    text-align: center;
+                    font-size: 2rem;
+                    font-weight: bold;
+                    color: black;
                 }
+
+                .botonEliminar {
+                    padding: 1rem;
+                    font-weight: bold;
+
+                    &:hover {
+                        background-color: rgb(255, 114, 53);
+                    }
+                }
+
+                .botonSumar {
+                    padding: 1rem;
+                    font-weight: bold;
+
+                    &:hover {
+                        background-color: rgb(255, 114, 53);
+                    }
+                }
+            }
+
+
+        }
+    }
+}
+
+.botonAgregar {
+    padding: 1rem;
+    font-weight: bold;
+
+    &:hover {
+        background-color: rgb(255, 114, 53);
+    }
+}
+
+.footer {
+    margin: 1rem;
+    padding: 1rem;
+
+    .redesSociales {
+        margin: 0.3rem;
+        width: 5vw;
+    }
+}
+
+.tituloSecundario {
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.containerCarrusel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+    margin: 1rem;
+    padding: 1rem;
+
+    .card {
+        width: 30vw;
+        height: auto;
+
+        img {
+            height: 50vh;
+            width: auto;
+        }
+
+        .card-body {
+            .card-text {
+                color: black;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-weight: bold;
             }
         }
     }
+
 }

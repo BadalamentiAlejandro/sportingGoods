@@ -1,14 +1,13 @@
 
 //Array para la cesta
-let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 
 //Manipulamos el DOM de miCesta.
-let containerProducto = document.getElementById("containerProducto");
+const containerProducto = document.getElementById("containerProducto");
 
-let containerTotal = document.getElementById("containerTotal");
 
-//Este loop imprime el los productos y los precios de la cesta.
+//Este loop imprime los productos y los precios de la cesta.
 function imprimirContainer() {
     for (const producto of carrito) {
         containerProducto.innerHTML += `
@@ -16,12 +15,32 @@ function imprimirContainer() {
                             <img class="imagen" src= "${producto.imagen}">
                             <p class="nombre">${producto.nombre}</p>
                             <p class="precio">$${producto.precio}</p>
-                            <button class="botonEliminar">Eliminar producto</button>
+                            <div class="containerContador">
+                                <button class="botonEliminar"> Quitar </button>
+                                <p class="textoContador" id="textoContador"> 1 </p>
+                                <button class="botonSumar"> Sumar </button>
+                            </div>
                         </li>    
                             `;
     }
 };
 imprimirContainer()
+
+
+const textoContador = document.getElementsByClassName("textoContador");
+const botonSumar = document.getElementsByClassName("botonSumar");
+//Función para sumar productos.
+function sumarElemento(botonSumar) {
+    let count = 1
+    for (let i = 0; i < botonSumar.length; i++) {
+        botonSumar[i].addEventListener("click", () => {
+            count++;
+            textoContador[i].innerHTML = count;
+        })
+    
+    }
+}
+sumarElemento(botonSumar);
 
 
 const botonEliminar = document.getElementsByClassName("botonEliminar");
@@ -38,6 +57,7 @@ function eliminarElemento(botonEliminar) {
 };
 eliminarElemento(botonEliminar);
 
+
 let total = 0;
 //Funcion que suma el precio total de todos los items en el carrito.
 function sumarTotal() {
@@ -47,6 +67,38 @@ function sumarTotal() {
     };
 };
 sumarTotal();
+
+
+
+let containerTotal = document.getElementById("containerTotal");
 //Este elemento imprime el precio total de la compra.
 containerTotal.innerHTML = `
-                            <h2>Precio Total: $${total.toFixed(2)} </h2>`;
+                            <h2>Precio Total: $${total.toFixed(2)} </h2>
+                            <button id="botonComprar" class="botonAgregar">Comprar</button>
+                            `;
+const botonComprar = document.getElementById("botonComprar");
+function comprar() {
+    botonComprar.addEventListener("click", () => {
+        if (!carrito.length) {
+            swal({
+                title: "Lo sentimos, no tienes ningun producto en la cesta. Agrega un producto en la sección Ropa para poder realizar la compra",
+                icon: "error",
+            });
+        } else {
+            swal({
+                title: "Haz realizado la compra correctamente por un total de",
+                text: `$${total.toFixed(2)}`,
+                icon: "success",
+            });
+        };
+
+    });
+}
+comprar();
+
+
+
+
+
+
+console.log(carrito);

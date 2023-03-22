@@ -90,8 +90,59 @@ body {
         font-weight: bold; }
         .main .container .lista .botonAgregar:hover {
           background-color: #ff7235; }
-      .main .container .lista .botonEliminar {
-        padding: 1rem;
-        font-weight: bold; }
-        .main .container .lista .botonEliminar:hover {
-          background-color: #ff7235; }
+      .main .container .lista .containerContador {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around; }
+        .main .container .lista .containerContador .textoContador {
+          text-align: center;
+          font-size: 2rem;
+          font-weight: bold;
+          color: black; }
+        .main .container .lista .containerContador .botonEliminar {
+          padding: 1rem;
+          font-weight: bold; }
+          .main .container .lista .containerContador .botonEliminar:hover {
+            background-color: #ff7235; }
+        .main .container .lista .containerContador .botonSumar {
+          padding: 1rem;
+          font-weight: bold; }
+          .main .container .lista .containerContador .botonSumar:hover {
+            background-color: #ff7235; }
+
+.botonAgregar {
+  padding: 1rem;
+  font-weight: bold; }
+  .botonAgregar:hover {
+    background-color: #ff7235; }
+
+.footer {
+  margin: 1rem;
+  padding: 1rem; }
+  .footer .redesSociales {
+    margin: 0.3rem;
+    width: 5vw; }
+
+.tituloSecundario {
+  margin: 1rem;
+  padding: 1rem;
+  text-align: center; }
+
+.containerCarrusel {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-around;
+  margin: 1rem;
+  padding: 1rem; }
+  .containerCarrusel .card {
+    width: 30vw;
+    height: auto; }
+    .containerCarrusel .card img {
+      height: 50vh;
+      width: auto; }
+    .containerCarrusel .card .card-body .card-text {
+      color: black;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-weight: bold; }
