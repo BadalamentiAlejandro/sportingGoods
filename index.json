@@ -1,46 +1,53 @@
 {
     "store": [
         {
-            "id": "0",
-            "imagen": "../resources/remera.jpg",
-            "nombre": "remera",
-            "precio": 5.53
-        },
-        {
             "id": "1",
-            "imagen": "../resources/sweater.jpg",
-            "nombre": "sweater",
-            "precio": 12.28
+            "imagen": "../resources/remera.jpg",
+            "nombre": "Remera",
+            "precio": 5.53,
+            "cantidad": 1
         },
         {
             "id": "2",
-            "imagen": "../resources/shorts.jpg",
-            "nombre": "shorts",
-            "precio": 8.42
+            "imagen": "../resources/sweater.jpg",
+            "nombre": "Sweater",
+            "precio": 12.28,
+            "cantidad": 1
         },
         {
             "id": "3",
-            "imagen": "../resources/zapatillas.webp",
-            "nombre": "zapatillas",
-            "precio": 40.17
+            "imagen": "../resources/shorts.jpg",
+            "nombre": "Shorts",
+            "precio": 8.42,
+            "cantidad": 1
         },
         {
             "id": "4",
-            "imagen": "../resources/pantalones.webp",
-            "nombre": "pantalones",
-            "precio": 15.00
+            "imagen": "../resources/zapatillas.webp",
+            "nombre": "Zapatillas",
+            "precio": 40.17,
+            "cantidad": 1
         },
         {
             "id": "5",
-            "imagen": "../resources/leggings.webp",
-            "nombre": "leggings",
-            "precio": 12.98
+            "imagen": "../resources/pantalones.webp",
+            "nombre": "Pantalones",
+            "precio": 15.00,
+            "cantidad": 1
         },
         {
             "id": "6",
+            "imagen": "../resources/leggings.webp",
+            "nombre": "Leggings",
+            "precio": 12.98,
+            "cantidad": 1
+        },
+        {
+            "id": "7",
             "imagen": "../resources/botines.jpg",
-            "nombre": "botines",
-            "precio": 50.00
+            "nombre": "Botines",
+            "precio": 50.00,
+            "cantidad": 1
         }
     ]
 }

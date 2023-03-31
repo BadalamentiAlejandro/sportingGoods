@@ -32,7 +32,10 @@ body {
     }
 
     h3 {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 1rem;
+        color: rgb(255, 114, 53);
     }
 }
 
@@ -119,57 +122,77 @@ body {
             }
 
             .botonAgregar {
-                padding: 1rem;
+                padding: 0.5rem;
                 font-weight: bold;
+                transition: all 1s ease;
 
                 &:hover {
                     background-color: rgb(255, 114, 53);
+                    transform: scale(1.1, 1.1);
                 }
             }
-
-            .containerContador {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-around;
-
-                .textoContador {
-                    text-align: center;
-                    font-size: 2rem;
-                    font-weight: bold;
-                    color: black;
-                }
-
-                .botonEliminar {
-                    padding: 1rem;
-                    font-weight: bold;
-
-                    &:hover {
-                        background-color: rgb(255, 114, 53);
-                    }
-                }
-
-                .botonSumar {
-                    padding: 1rem;
-                    font-weight: bold;
-
-                    &:hover {
-                        background-color: rgb(255, 114, 53);
-                    }
-                }
-            }
-
-
         }
     }
 }
 
-.botonAgregar {
-    padding: 1rem;
-    font-weight: bold;
+.mainMiCesta {
+    display: flex;
+    justify-content: center;
+
+    .containerProducto {
+        margin: 1rem;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        flex-wrap: wrap;
+        text-align: center;
+        list-style-type: none;
+
+        .imagen {
+            margin: 1rem;
+            width: 20vw;
+            height: 45vh;
+        }
+
+        .nombre {
+            text-transform: uppercase;
+            font-size: larger;
+        }
+
+        .botonAgregar {
+            padding: 1rem;
+            margin: 0.5rem;
+            font-weight: bold;
+            transition: all 1s ease;
+
+            &:hover {
+                background-color: rgb(255, 114, 53);
+                transform: scale(1.1, 1.1);
+            }
+        }
+    }
+}
+
+.botonVaciarCarrito {
+    margin-left: 2rem;
+    margin-top: 2rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: all 1s ease;
 
     &:hover {
         background-color: rgb(255, 114, 53);
+        transform: scale(1.1, 1.1);
     }
+}
+
+.containerTotal {
+    font-size: 2rem;
+    font-weight: 700;
+    color: rgb(255, 114, 53);
+    margin: 1rem;
+    padding: 1rem;
 }
 
 .footer {

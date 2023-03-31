@@ -19,7 +19,7 @@
 <body>
     <header class="header">
         <h1>Sporting Goods</h1>
-        <h3>Tu tienda de ropa deportiva favorita</h3>
+        <h3 class="subTitulo">MI CESTA</h3>
     </header>
 
     <nav class="nav">
@@ -33,13 +33,17 @@
     </nav>
 
     <main>
-        <div class="main">
-            <ul id="containerProducto" class="container">
+        <div class="mainMiCesta">
+            <ul id="containerProducto" class="containerProducto">
 
             </ul>
         </div>
 
-        <div id="containerTotal" class="container"> </div>
+        <button id="botonVaciarCarrito" class="botonVaciarCarrito" onclick="vaciarCarrito()">Vaciar Carrito</button>
+
+        <button id="botonComprar" class="botonVaciarCarrito" onclick="realizarCompra()">Comprar</button>
+
+        <div id="containerTotal" class="containerTotal"> </div>
     </main>
 
     <footer class="footer">
