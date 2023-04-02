@@ -115,6 +115,7 @@ function realizarCompra() {
             title: "Compra realizada con exito!",
             icon: "success",
         })
+        vaciarCarrito();
     }
 };
 
