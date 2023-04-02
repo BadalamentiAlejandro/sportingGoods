@@ -46,7 +46,7 @@ function funcionAgregar(id) {
     //Si nos devuelve true.
     if (productoExiste) {
         //Aquí mapeamos 
-        const productoEncontrado = carrito.map((e) => {
+        const productoEncontrado = carrito.find((e) => {
             if (parseFloat(e.id) === id) {
                 e.cantidad++
                 localStorage.setItem("carrito", JSON.stringify(carrito));
